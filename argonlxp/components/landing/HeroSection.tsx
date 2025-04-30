@@ -12,7 +12,7 @@ const Hero = () => {
             {/* Background image with overlay */}
             <div className="absolute inset-0">
                 <img 
-                    src="https://img.freepik.com/free-photo/study-group-african-people_23-2149156390.jpg?t=st=1745996262~exp=1745999862~hmac=3aed1db814d7b77725e2b6ebfe0ca9b243004f3996453e15bd73b4bb9e38802e&w=1380" 
+                    src="/study.png" 
                     alt="Students collaborating" 
                     className="object-cover w-full h-full"
                 />
