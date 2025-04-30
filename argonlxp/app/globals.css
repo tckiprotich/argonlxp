@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-inter);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Sherwood Green Color Palette */
+  --sherwood-50: #ecfdf9;
+  --sherwood-100: #d1faef;
+  --sherwood-200: #a7f3df;
+  --sherwood-300: #6ee7c7;
+  --sherwood-400: #34d3a9;
+  --sherwood-500: #10b98c;
+  --sherwood-600: #059670;
+  --sherwood-700: #047859;
+  --sherwood-800: #065f48;
+  --sherwood-900: #064e3b;
+  --sherwood-950: #022c21;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Implementing Sherwood Green color palette */
+  --background: var(--sherwood-50);
+  --foreground: var(--sherwood-950);
+  --card: var(--sherwood-50);
+  --card-foreground: var(--sherwood-950);
+  --popover: var(--sherwood-50);
+  --popover-foreground: var(--sherwood-950);
+  --primary: var(--sherwood-600);
+  --primary-foreground: var(--sherwood-50);
+  --secondary: var(--sherwood-100);
+  --secondary-foreground: var(--sherwood-800);
+  --muted: var(--sherwood-100);
+  --muted-foreground: var(--sherwood-700);
+  --accent: var(--sherwood-100);
+  --accent-foreground: var(--sherwood-800);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--sherwood-200);
+  --input: var(--sherwood-200);
+  --ring: var(--sherwood-500);
+  --chart-1: var(--sherwood-500);
+  --chart-2: var(--sherwood-600);
+  --chart-3: var(--sherwood-700);
+  --chart-4: var(--sherwood-400);
+  --chart-5: var(--sherwood-300);
+  --sidebar: var(--sherwood-800);
+  --sidebar-foreground: var(--sherwood-50);
+  --sidebar-primary: var(--sherwood-500);
+  --sidebar-primary-foreground: var(--sherwood-50);
+  --sidebar-accent: var(--sherwood-700);
+  --sidebar-accent-foreground: var(--sherwood-50);
+  --sidebar-border: var(--sherwood-900);
+  --sidebar-ring: var(--sherwood-400);
+}
+
+.dark {
+  --background: var(--sherwood-950);
+  --foreground: var(--sherwood-50);
+  --card: var(--sherwood-900);
+  --card-foreground: var(--sherwood-50);
+  --popover: var(--sherwood-900);
+  --popover-foreground: var(--sherwood-50);
+  --primary: var(--sherwood-500);
+  --primary-foreground: var(--sherwood-950);
+  --secondary: var(--sherwood-800);
+  --secondary-foreground: var(--sherwood-50);
+  --muted: var(--sherwood-800);
+  --muted-foreground: var(--sherwood-300);
+  --accent: var(--sherwood-800);
+  --accent-foreground: var(--sherwood-50);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: var(--sherwood-800);
+  --input: var(--sherwood-800);
+  --ring: var(--sherwood-500);
+  --chart-1: var(--sherwood-500);
+  --chart-2: var(--sherwood-400);
+  --chart-3: var(--sherwood-300);
+  --chart-4: var(--sherwood-600);
+  --chart-5: var(--sherwood-700);
+  --sidebar: var(--sherwood-900);
+  --sidebar-foreground: var(--sherwood-50);
+  --sidebar-primary: var(--sherwood-500);
+  --sidebar-primary-foreground: var(--sherwood-50);
+  --sidebar-accent: var(--sherwood-800);
+  --sidebar-accent-foreground: var(--sherwood-50);
+  --sidebar-border: var(--sherwood-800);
+  --sidebar-ring: var(--sherwood-500);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-grid-pulse {
+    animation: grid-pulse 8s infinite;
+  }
+  
+  .animate-blob-slow {
+    animation: blob-slow 25s infinite ease;
+  }
+  
+  .animate-blob-reverse {
+    animation: blob-slow 30s infinite ease reverse;
+  }
+  
+  .animate-float {
+    animation: float 6s infinite ease-in-out;
+  }
+  
+  .animate-float-slow {
+    animation: float 8s infinite ease-in-out;
+  }
+  
+  .animate-ping-slow {
+    animation: ping-slow 3s infinite cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-3000 {
+    animation-delay: 3s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  .cursor-light {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sherwood-500) / 15% 0%, var(--sherwood-500) / 0% 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.8;
+    animation: fadeOut 1s forwards;
+  }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes blob-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(20px, -30px) scale(1.05); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(-30px, -20px) scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ping-slow {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
